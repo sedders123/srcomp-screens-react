@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+    "version": "0.2",
+    "dictionaryDefinitions": [
+        {
+            "name": "project-words",
+            "path": "./.spelling",
+            "addWords": true
+        }
+    ],
+    "dictionaries": [
+        "en-gb",
+        "css",
+        "html",
+        "project-words"
+    ],
+    "useGitignore": true,
+    "files": ["**/*.html", "**/*.md", "**/*.js", "**/*.scss"]
+
+}
