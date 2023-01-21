@@ -1,0 +1,15 @@
+# Project Specific
+.env
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Production
+/build
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
