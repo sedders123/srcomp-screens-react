@@ -3,6 +3,7 @@
       "baseUrl": "./src",
       "paths": {
         "assets/*": ["./assets/*"],
+        "screens/*": ["./screens/*"],
       }
     },
     "exclude": ["build", "node_modules"]
