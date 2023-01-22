@@ -4,6 +4,8 @@
       "paths": {
         "assets/*": ["./assets/*"],
         "screens/*": ["./screens/*"],
+        "srcomp/*": ["./srcomp/*"],
+        "utils/*": ["./utils/*"],
       }
     },
     "exclude": ["build", "node_modules"]

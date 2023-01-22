@@ -8,12 +8,9 @@ import {
 } from "./srcompSlice";
 
 const SrcompStreamConsumer = () => {
-  console.log("Rendering SrcompConsumer", process.env.EVENT_STREAM_URL);
   const dispatch = useDispatch();
   useEffect(() => {
     const sse = new EventSource("http://localhost:8080/stream");
-
-    console.log("Created EventSource", sse);
 
     sse.addEventListener("team", (event) => {
       dispatch(updateTeamData(event.data));
