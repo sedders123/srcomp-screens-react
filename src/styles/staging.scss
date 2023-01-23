@@ -1,0 +1,31 @@
+.staging {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+      tr {
+        th {
+          padding: 0.5em 1em;
+          text-align: left;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 0.5em 1em;
+          border-bottom: 1px solid rgb(104, 104, 104);
+        }
+      }
+    }
+    .current-match {
+      font-weight: bold;
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+}

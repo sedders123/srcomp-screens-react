@@ -6,12 +6,26 @@ const initialState = {
   currentDelay: null,
   knockouts: {},
   matches: [],
+  arenas: {},
+  corners: {},
 };
 
 export const fetchMatches = createAsyncThunk("matches/fetch", async () => {
   const response = await fetch(`${process.env.API_URL}/matches`);
   const matchData = await response.json();
   return matchData;
+});
+
+export const fetchArenas = createAsyncThunk("arenas/fetch", async () => {
+  const response = await fetch(`${process.env.API_URL}/arenas`);
+  const arenaData = await response.json();
+  return arenaData;
+});
+
+export const fetchCorners = createAsyncThunk("corners/fetch", async () => {
+  const response = await fetch(`${process.env.API_URL}/corners`);
+  const cornerData = await response.json();
+  return cornerData;
 });
 
 export const srcompSlice = createSlice({
@@ -36,6 +50,12 @@ export const srcompSlice = createSlice({
     builder.addCase(fetchMatches.fulfilled, (state, action) => {
       state.lastScoredMatch = action.payload.last_scored;
       state.matches = action.payload.matches;
+    });
+    builder.addCase(fetchArenas.fulfilled, (state, action) => {
+      state.arenas = action.payload.arenas;
+    });
+    builder.addCase(fetchCorners.fulfilled, (state, action) => {
+      state.corners = action.payload.corners;
     });
   },
 });
