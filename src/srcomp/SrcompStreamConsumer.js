@@ -5,6 +5,7 @@ import {
   setLastScoredMatch,
   setCurrentDelay,
   setKnockouts,
+  fetchMatches,
 } from "./srcompSlice";
 
 const SrcompStreamConsumer = () => {
@@ -22,6 +23,7 @@ const SrcompStreamConsumer = () => {
 
     sse.addEventListener("current-delay", (event) => {
       dispatch(setCurrentDelay(event.data));
+      dispatch(fetchMatches()); // If the delay changes, we need to update the matches
     });
 
     sse.addEventListener("knockouts", (event) => {

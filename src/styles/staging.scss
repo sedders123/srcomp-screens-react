@@ -25,7 +25,14 @@
   }
   footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 1em;
+
+    & :first-child {
+      margin-left: 1rem;
+    }
+    & :last-child {
+      margin-right: 1rem;
+    }
   }
 }

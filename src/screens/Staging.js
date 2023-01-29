@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArenas, fetchCorners, fetchMatches } from "srcomp/srcompSlice";
-import { useInterval } from "utils";
+import { useInterval, secondsToHumanReadable } from "utils";
 
 const numberOfPreviousMatchesToDisplay = 1;
 const numberOfUpcomingMatchesToDisplay = 7;
@@ -17,14 +17,26 @@ const Staging = () => {
   return (
     <div className="arena-side staging">
       <StagingTable currentTime={currentTime} />
-      <footer>
+      <StagingFooter currentTime={currentTime} />
+    </div>
+  );
+};
+
+const StagingFooter = ({ currentTime }) => {
+  const currentDelay = useSelector((state) => state.srcomp.currentDelay);
+  return (
+    <footer>
+      <div>
         {currentTime.toLocaleString({
           hour: "numeric",
           minute: "numeric",
           second: "numeric",
         })}
-      </footer>
-    </div>
+      </div>
+      <div>
+        Delay: {currentDelay ? secondsToHumanReadable(currentDelay) : "None"}
+      </div>
+    </footer>
   );
 };
 
@@ -32,6 +44,7 @@ const StagingTable = ({ currentTime }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // Load data on first render
     dispatch(fetchMatches());
     dispatch(fetchArenas());
     dispatch(fetchCorners());
