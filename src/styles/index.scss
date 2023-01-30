@@ -12,14 +12,23 @@ code {
     monospace;
 }
 
-.arena-side {
-  background-color: #282c34;
+.screen {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2.5vmin);
+}
+
+.arena-side {
+  background-color: #282c34;
+  color: white;
+}
+
+.public-facing {
+  background-color: #3270ed;
   color: white;
 }
 
 @import "./home.scss";
 @import "./staging.scss";
+@import "./leaderboard.scss";

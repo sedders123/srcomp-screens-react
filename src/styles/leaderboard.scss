@@ -1,0 +1,19 @@
+.leaderboard {
+  align-items: center;
+  h1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    td,
+    th {
+      padding: 0.5rem 1rem;
+    }
+    margin-bottom: 1rem;
+  }
+
+  .last-scored {
+    font-size: calc(10px + 1.5vmin);
+  }
+}

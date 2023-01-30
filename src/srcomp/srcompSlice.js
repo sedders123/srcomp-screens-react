@@ -28,6 +28,12 @@ export const fetchCorners = createAsyncThunk("corners/fetch", async () => {
   return cornerData;
 });
 
+export const fetchTeams = createAsyncThunk("teams/fetch", async () => {
+  const response = await fetch(`${process.env.API_URL}/teams`);
+  const teamData = await response.json();
+  return teamData;
+});
+
 export const srcompSlice = createSlice({
   name: "srcomp",
   initialState,
@@ -56,6 +62,9 @@ export const srcompSlice = createSlice({
     });
     builder.addCase(fetchCorners.fulfilled, (state, action) => {
       state.corners = action.payload.corners;
+    });
+    builder.addCase(fetchTeams.fulfilled, (state, action) => {
+      state.teams = action.payload.teams;
     });
   },
 });
