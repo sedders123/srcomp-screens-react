@@ -21,6 +21,7 @@ code {
   display: flex;
   flex-direction: column;
   font-size: fontSize(1);
+  overflow-y: auto;
 }
 
 .dark {
