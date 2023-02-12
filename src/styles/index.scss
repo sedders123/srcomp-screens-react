@@ -29,6 +29,8 @@ code {
   color: white;
 }
 
+@import "./components/match-schedule.scss";
+
 @import "./home.scss";
 @import "./staging.scss";
 @import "./leaderboard.scss";
