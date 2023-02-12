@@ -1,3 +1,7 @@
+@function fontSize($size) {
+  @return calc(10px + #{$size} * 2.5vmin);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -16,7 +20,7 @@ code {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2.5vmin);
+  font-size: fontSize(1);
 }
 
 .arena-side {
