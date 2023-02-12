@@ -1,1 +1,1 @@
-export { default as MatchSchedule } from "./MatchSchedule";
+export { default as MatchSchedule, MatchScheduleMode } from "./MatchSchedule";

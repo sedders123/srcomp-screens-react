@@ -1,4 +1,4 @@
-import { MatchSchedule } from "components";
+import { MatchSchedule, MatchScheduleMode } from "components";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import useInterval from "utils/useInterval";
@@ -25,6 +25,7 @@ const Schedule = () => {
               DateTime.fromISO(match.times.game.start).toRelative(),
           },
         ]}
+        mode={MatchScheduleMode.Match}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useInterval, secondsToHumanReadable } from "utils";
-import { MatchSchedule } from "components";
+import { MatchSchedule, MatchScheduleMode } from "components";
 
 const Staging = () => {
   const [currentTime, setCurrentTime] = useState(DateTime.now());
@@ -17,6 +17,7 @@ const Staging = () => {
         currentTime={currentTime}
         numberOfPreviousMatchesToDisplay={1}
         numberOfUpcomingMatchesToDisplay={7}
+        mode={MatchScheduleMode.Staging}
         columns={[
           { header: "Match", render: (match) => match.num },
           {

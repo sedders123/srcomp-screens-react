@@ -3,13 +3,28 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArenas, fetchCorners, fetchMatches } from "srcomp/srcompSlice";
 
-const getMatchClassName = (match) => {
-  if (match.times.game.end < DateTime.local().toISO()) {
-    return "old-match";
-  } else if (match.times.game.start > DateTime.local().toISO()) {
-    return "future-match";
+const getMatchClassName = (match, mode) => {
+  if (mode == MatchScheduleMode.Staging) {
+    if (match.times.staging.closes < DateTime.local().toISO()) {
+      return "old-match";
+    } else if (match.times.staging.opens > DateTime.local().toISO()) {
+      return "future-match";
+    }
+    return "current-match";
   }
-  return "current-match";
+  if (mode == MatchScheduleMode.Match) {
+    if (match.times.game.end < DateTime.local().toISO()) {
+      return "old-match";
+    } else if (match.times.game.start > DateTime.local().toISO()) {
+      return "future-match";
+    }
+    return "current-match";
+  }
+};
+
+export const MatchScheduleMode = {
+  Staging: "staging",
+  Match: "match",
 };
 
 const MatchSchedule = ({
@@ -17,6 +32,7 @@ const MatchSchedule = ({
   numberOfPreviousMatchesToDisplay,
   numberOfUpcomingMatchesToDisplay,
   columns,
+  mode,
 }) => {
   const dispatch = useDispatch();
 
@@ -32,9 +48,15 @@ const MatchSchedule = ({
     if (!matches || matches.length === 0) {
       return [];
     }
-    const currentMatch = matches.findLast(
-      (match) => DateTime.fromISO(match.times.staging.opens) <= currentTime
-    );
+    const currentMatch =
+      mode == MatchScheduleMode.Staging
+        ? matches.findLast(
+            (match) =>
+              DateTime.fromISO(match.times.staging.opens) <= currentTime
+          )
+        : matches.findLast(
+            (match) => DateTime.fromISO(match.times.game.start) <= currentTime
+          );
     const currentMatchIndex = currentMatch ? matches.indexOf(currentMatch) : 0;
     const previousMatches = matches.slice(
       Math.max(0, currentMatchIndex - numberOfPreviousMatchesToDisplay),
@@ -72,7 +94,7 @@ const MatchSchedule = ({
       </thead>
       <tbody>
         {matchesToDisplay?.map((match) => (
-          <tr key={match.num} className={getMatchClassName(match)}>
+          <tr key={match.num} className={getMatchClassName(match, mode)}>
             {columns.map((column) => (
               <td key={`${match.num}-${column.header}`}>
                 {column.render(match)}
