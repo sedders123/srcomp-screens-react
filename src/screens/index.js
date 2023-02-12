@@ -1,6 +1,7 @@
 import Arena from "./Arena";
 import Home from "./Home";
 import Leaderboard from "./Leaderboard";
+import CompetitorSchedule from "./CompetitorSchedule";
 import Staging from "./Staging";
 
 export const Routes = [
@@ -8,4 +9,5 @@ export const Routes = [
   { path: "/arena", element: <Arena /> },
   { path: "/staging", element: <Staging /> },
   { path: "/leaderboard", element: <Leaderboard /> },
+  { path: "/competitor-schedule", element: <CompetitorSchedule /> },
 ];

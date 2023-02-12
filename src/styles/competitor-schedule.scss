@@ -1,0 +1,26 @@
+.competitor-schedule {
+  h1 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  table.match-schedule {
+    tbody {
+      tr {
+        &.old-match {
+          opacity: 0.5;
+          font-size: fontSize(0.8);
+        }
+
+        &.current-match {
+          font-weight: bold;
+          font-size: fontSize(1.2);
+        }
+
+        &.future-match {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
