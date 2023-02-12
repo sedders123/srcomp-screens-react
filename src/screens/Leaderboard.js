@@ -8,7 +8,7 @@ const Leaderboard = () => {
   const lastScoredMatch = useSelector((state) => state.srcomp.lastScoredMatch);
 
   return (
-    <div className="screen public-facing leaderboard">
+    <div className="screen light leaderboard">
       <h1>Leaderboard</h1>
       <LeaderboardTable />
       {lastScoredMatch && (

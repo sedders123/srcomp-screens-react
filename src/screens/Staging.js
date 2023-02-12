@@ -15,7 +15,7 @@ const Staging = () => {
   }, 500);
 
   return (
-    <div className="screen arena-side staging">
+    <div className="screen dark staging">
       <StagingTable currentTime={currentTime} />
       <StagingFooter currentTime={currentTime} />
     </div>
