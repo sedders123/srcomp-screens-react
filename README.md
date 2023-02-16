@@ -1,4 +1,4 @@
 # Student Robotics Competition Screens
 
-This repository contains the website used for the various screens that are
-displayed at the competition.
+This repository aims to recreate the screens from
+[SRComp Screens](https://github.com/srobo/srcomp-screens) using React 18.
