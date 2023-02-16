@@ -19,5 +19,7 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
+    - name: Create Dummy .env
+      run: cp .env.example .env
     - name: Lint Frontend
       run: npm run lint
